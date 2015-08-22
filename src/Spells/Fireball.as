@@ -9,6 +9,7 @@ package Spells
 			timeToCast = 3.0;
 			damage = 10.0;
 			speed = 400.0;
+			name = "Fireball";
 		}
 		
 		override public function start(caster:Hero, target:FlxSprite):void

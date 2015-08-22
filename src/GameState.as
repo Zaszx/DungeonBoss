@@ -8,6 +8,8 @@ package
 		public var boss:Boss;
 		public var party:Party;
 		
+		public var guiManager:GuiManager;
+		
 		public var spells:Array = new Array();
 		
 		public function GameState() 
@@ -20,6 +22,8 @@ package
 			boss = new Boss();
 			add(boss);
 			party = new Party(this);
+			
+			guiManager = new GuiManager(this);
 		}
 		
 		override public function update(): void
@@ -27,9 +31,11 @@ package
 			super.update();
 			party.tick();
 			checkCollisions();
+			
+			guiManager.tick();
 		}
 		
-		public function addSpell(spell:Spell)
+		public function addSpell(spell:Spell):void
 		{
 			spells.push(spell);
 			add(spell.sprite);
@@ -40,7 +46,7 @@ package
 			for (var i:int = 0; i < spells.length; i++)
 			{
 				var s:Spell = spells[i];
-				if (FlxG.collide(s.sprite, boss))
+				if (FlxG.overlap(s.sprite, boss))
 				{
 					boss.receiveDamage(s.damage);
 					remove(s.sprite);

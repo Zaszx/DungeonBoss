@@ -8,6 +8,8 @@ package Spells
 		public var damage:Number;
 		public var sprite:FlxSprite;
 		public var speed:Number;
+		public var name:String;
+		
 		public function Spell() 
 		{
 			

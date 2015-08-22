@@ -6,6 +6,7 @@ package Decisions
 	{
 		public var spellToCast:Spell;
 		public var target:FlxSprite;
+		public var percent:Number;
 		
 		private var accumulatedTime:Number = 0;
 		private var _isDone:Boolean = false;
@@ -15,6 +16,7 @@ package Decisions
 			super(stage, hero);
 			this.target = target;
 			this.spellToCast = spellToCast;
+			percent = 0;
 		}
 		
 		override public function execute():void
@@ -31,6 +33,7 @@ package Decisions
 					_isDone = true;
 				}
 				accumulatedTime += dt;
+				percent = accumulatedTime * 100.0 / spellToCast.timeToCast;
 				if (accumulatedTime > spellToCast.timeToCast)
 				{
 					spellToCast.start(hero, target);

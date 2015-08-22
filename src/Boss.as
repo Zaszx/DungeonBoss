@@ -5,9 +5,13 @@ package
 	public class Boss extends FlxSprite
 	{
 		public var speed:Number = 2.0;
+		public var health:int = 100;
+		public var maxHealth:int = 100;
+		
 		public function Boss() 
 		{
-			
+			x = FlxG.width / 2.0;
+			y = FlxG.height * 3.0 / 5.0;
 		}
 		
 		override public function update():void
@@ -18,7 +22,7 @@ package
 		
 		public function receiveDamage(damage:Number)
 		{
-			
+			health = health - damage;
 		}
 		
 		private function handleInput():void

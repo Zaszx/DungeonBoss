@@ -13,15 +13,24 @@ package
 			range = 250.0;
 			speed = 2.0;
 			health = 100;
+			maxHealth = 100;
 			mana = 100;
 		}
 		
 		override public function makeDecision():void
 		{
-			if (FlxU.getDistance(getPosition(), stage.boss.getPosition()) < range)
+			var distanceToBoss:Number = FlxU.getDistance(getPosition(), stage.boss.getPosition());
+			if (distanceToBoss < range)
 			{
-				var fireball:Fireball = new Fireball();
-				decision = new Cast(stage, this, stage.boss, fireball);
+				if (distanceToBoss < Constants.fleeEndDistance)
+				{
+					decision = new Flee(stage, this, stage.boss);						
+				}
+				else
+				{
+					var fireball:Fireball = new Fireball();
+					decision = new Cast(stage, this, stage.boss, fireball);	
+				}
 			}
 			else
 			{

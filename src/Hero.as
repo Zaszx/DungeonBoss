@@ -8,13 +8,16 @@ package
 	public class Hero extends FlxSprite
 	{
 		public var stage:GameState;
+		public var heroView:HeroView;
 		
 		public var range:int;
 		public var speed:Number;
 		public var health:int;
+		public var maxHealth:int;
 		public var mana:int;
 		
 		public var decision:Decision;
+		
 		
 		public function Hero(x:Number, y:Number, stage:GameState) 
 		{
@@ -22,6 +25,8 @@ package
 			this.y = y;
 			this.stage = stage;
 			loadGraphic(Assets._heroImage);
+			
+			heroView = new HeroView(this, stage);
 		}
 		
 		public function lookAt(boss:FlxSprite):void
@@ -30,14 +35,19 @@ package
 			this.angle = lookAngle;
 		}
 		
+		public function moveInDirection(direction:FlxPoint):void
+		{
+			direction.normalize();
+			x = x + direction.x * speed;
+			y = y + direction.y * speed;
+		}
+		
 		public function moveTo(target:FlxSprite):void
 		{
 			var direction:FlxPoint = FlxPoint.direction(getPosition(), target.getPosition());
 			if (direction.getLength() > speed)
 			{
-				direction.normalize();
-				x = x + direction.x * speed;
-				y = y + direction.y * speed;
+				moveInDirection(direction);
 			}
 			else
 			{
@@ -58,7 +68,7 @@ package
 			}
 			
 			decision.tick(Constants.fixedDt);
-			
+			heroView.tick();
 			
 		}
 		
