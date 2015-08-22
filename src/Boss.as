@@ -16,6 +16,11 @@ package
 			handleInput();
 		}
 		
+		public function receiveDamage(damage:Number)
+		{
+			
+		}
+		
 		private function handleInput():void
 		{
 			// Movement

@@ -34,6 +34,7 @@ package Decisions
 				if (accumulatedTime > spellToCast.timeToCast)
 				{
 					spellToCast.start(hero, target);
+					stage.addSpell(spellToCast);
 					_isDone = true;
 				}	
 			}
