@@ -182,10 +182,6 @@ package org.flixel
 		 */
 		protected var _flickerTimer:Number;
 		/**
-		 * Handy for storing health percentage or armor points or whatever.
-		 */
-		public var health:Number;
-		/**
 		 * This is just a pre-allocated x-y point container to be used however you like
 		 */
 		protected var _point:FlxPoint;
@@ -936,19 +932,6 @@ package org.flixel
 		public function justTouched(Direction:uint):Boolean
 		{
 			return ((touching & Direction) > NONE) && ((wasTouching & Direction) <= NONE);
-		}
-		
-		/**
-		 * Reduces the "health" variable of this sprite by the amount specified in Damage.
-		 * Calls kill() if health drops to or below zero.
-		 * 
-		 * @param	Damage		How much health to take away (use a negative number to give a health bonus).
-		 */
-		public function hurt(Damage:Number):void
-		{
-			health = health - Damage;
-			if(health <= 0)
-				kill();
 		}
 		
 		/**

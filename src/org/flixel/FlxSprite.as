@@ -167,8 +167,6 @@ package org.flixel
 		{
 			super(X,Y);
 			
-			health = 1;
-
 			_flashPoint = new Point();
 			_flashRect = new Rectangle();
 			_flashRect2 = new Rectangle();
@@ -198,6 +196,17 @@ package org.flixel
 			if(SimpleGraphic == null)
 				SimpleGraphic = ImgDefault;
 			loadGraphic(SimpleGraphic);
+		}
+		
+		public function getPosition():FlxPoint
+		{
+			return new FlxPoint(x, y);
+		}
+		
+		public function setPosition(position:FlxPoint):void
+		{
+			x = position.x;
+			y = position.y;
 		}
 		
 		/**

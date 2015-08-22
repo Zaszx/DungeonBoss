@@ -85,6 +85,27 @@ package org.flixel
 			return this;
 		}
 		
+		public function getLength():Number
+		{
+			return Math.sqrt(x * x + y * y);
+		}
+		
+		public function normalize():void
+		{
+			var length:Number = getLength();
+			if (length > 0)
+			{
+				x = x / length;
+				y = y / length;
+			}
+		}
+		
+		public static function direction(from:FlxPoint, to:FlxPoint):FlxPoint
+		{
+			var result:FlxPoint = new FlxPoint(to.x - from.x, to.y - from.y);
+			return result;
+		}
+		
 		/**
 		 * Helper function, just copies the values from this point to the specified Flash point.
 		 * 
