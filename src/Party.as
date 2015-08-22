@@ -1,10 +1,11 @@
 package 
 {
 	import org.flixel.FlxG;
+	import Heroes.*;
 	public class Party 
 	{
-		private var heroes:Array = new Array();
-		private var stage:GameState;
+		public var heroes:Array = new Array();
+		public var stage:GameState;
 		public function Party(stage:GameState) 
 		{
 			this.stage = stage;
@@ -22,7 +23,7 @@ package
 			heroes.push(new Mage(FlxG.width * 2 / 6.0, 100, stage));
 			heroes.push(new Mage(FlxG.width * 3 / 6.0, 100, stage));
 			heroes.push(new Mage(FlxG.width * 4 / 6.0, 100, stage));
-			heroes.push(new Mage(FlxG.width * 5 / 6.0, 100, stage));
+			heroes.push(new Healer(FlxG.width * 5 / 6.0, 100, stage, this));
 			
 			for each(var hero:Hero in heroes)
 			{

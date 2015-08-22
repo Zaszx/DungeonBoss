@@ -2,6 +2,7 @@ package
 {
 	import Decisions.Cast;
 	import org.flixel.*;
+	import Heroes.*;
 	public class HeroView 
 	{
 		var hero:Hero;
@@ -13,20 +14,21 @@ package
 		var castingText:FlxText;
 		
 		var castingSpellName:FlxText;
+		const guiWidth:Number = 50.0;
 		
 		public function HeroView(hero:Hero, stage:GameState) 
 		{
 			this.hero = hero;
 			this.stage = stage;
-			healthBar = new FlxSprite(hero.getPosition().x, hero.getPosition().y - 30, Assets._heroHealthBar);
-			healthText = new FlxText(hero.getPosition().x, hero.getPosition().y - 30, 100, "100%");
+			healthBar = new FlxSprite(hero.getMidpoint().x, hero.getPosition().y - 30, Assets._heroHealthBar);
+			healthText = new FlxText(hero.getMidpoint().x, hero.getPosition().y - 30, guiWidth, "100%");
 			healthText.alignment = "center";
 			
-			castingBar = new FlxSprite(hero.getPosition().x, hero.getPosition().y - 20, Assets._heroCastingBar);
-			castingText = new FlxText(hero.getPosition().x, hero.getPosition().y - 30, 100, "");
+			castingBar = new FlxSprite(hero.getMidpoint().x, hero.getPosition().y - 20, Assets._heroCastingBar);
+			castingText = new FlxText(hero.getMidpoint().x, hero.getPosition().y - 30, guiWidth, "");
 			castingText.alignment = "center";
 			
-			castingSpellName = new FlxText(hero.getPosition().x, hero.getPosition().y - 10, 100, "");
+			castingSpellName = new FlxText(hero.getMidpoint().x, hero.getPosition().y - 10, guiWidth, "");
 			castingSpellName.alignment = "center";
 			
 			stage.add(healthBar);
@@ -57,17 +59,17 @@ package
 				castingSpellName.text = "";
 			}
 			
-			healthBar.x = hero.x;
+			healthBar.x = hero.getMidpoint().x - guiWidth / 2.0;
 			healthBar.y = hero.y - 30;
-			healthText.x = hero.x;
+			healthText.x = hero.getMidpoint().x - guiWidth / 2.0;
 			healthText.y = hero.y - 30;
 			
-			castingBar.x = hero.x;
+			castingBar.x = hero.getMidpoint().x - guiWidth / 2.0;
 			castingBar.y = hero.y - 20;
-			castingText.x = hero.x;
+			castingText.x = hero.getMidpoint().x - guiWidth / 2.0;
 			castingText.y = hero.y - 20;
 			
-			castingSpellName.x = hero.x;
+			castingSpellName.x = hero.getMidpoint().x - guiWidth / 2.0;
 			castingSpellName.y = hero.y - 10;
 		}
 		

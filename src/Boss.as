@@ -20,7 +20,7 @@ package
 			handleInput();
 		}
 		
-		public function receiveDamage(damage:Number)
+		public function receiveDamage(damage:Number):void
 		{
 			health = health - damage;
 		}

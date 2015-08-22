@@ -1,6 +1,7 @@
 package Spells
 {
 	import org.flixel.*;
+	import Heroes.*;
 	public class Fireball extends Spell
 	{
 		

@@ -1,5 +1,6 @@
 package Decisions
 {
+	import Heroes.*;
 	public class Decision 
 	{
 		public var stage:GameState;

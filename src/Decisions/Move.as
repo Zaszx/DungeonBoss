@@ -3,6 +3,7 @@ package Decisions
 	import org.flixel.FlxPoint;
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxU;
+	import Heroes.*;
 	public class Move extends Decision
 	{
 		public var target:FlxSprite;

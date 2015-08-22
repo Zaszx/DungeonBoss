@@ -41,7 +41,7 @@ package
 			add(spell.sprite);
 		}
 		
-		public function checkCollisions()
+		public function checkCollisions():void
 		{
 			for (var i:int = 0; i < spells.length; i++)
 			{

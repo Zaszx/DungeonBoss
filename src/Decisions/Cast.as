@@ -2,6 +2,7 @@ package Decisions
 {
 	import org.flixel.*;
 	import Spells.*;
+	import Heroes.*;
 	public class Cast extends Decision
 	{
 		public var spellToCast:Spell;

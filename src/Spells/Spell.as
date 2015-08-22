@@ -2,6 +2,7 @@ package Spells
 {
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxState;
+	import Heroes.*;
 	public class Spell 
 	{
 		public var timeToCast:Number;
