@@ -9,7 +9,7 @@ package
 		public function DungeonBoss()
 		{
 			super(500, 500, GameState, 1, 50, 50, true);
-			forceDebugger = true;			
+			forceDebugger = true;
 		}	
 	}
 

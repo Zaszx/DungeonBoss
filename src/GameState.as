@@ -3,6 +3,9 @@ package
 	import org.flixel.FlxState;
 	public class GameState extends FlxState
 	{
+		public var boss:Boss;
+		public var party:Party;
+		
 		public function GameState() 
 		{
 			
@@ -10,14 +13,15 @@ package
 		
 		override public function create():void
 		{
-			var boss:Boss = new Boss();
+			boss = new Boss();
 			add(boss);
+			party = new Party(this);
 		}
 		
 		override public function update(): void
 		{
 			super.update();
-			
+			party.tick();
 		}
 		
 	}
